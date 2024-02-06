@@ -13,27 +13,23 @@ public class ShopUI : MonoBehaviour
 
     private void Awake()
     {
-        towerManager.TowerManagementInteraction += ManagementInteraction;
         resourceManager.updateUI += UpdateResources;
         enemySpawner.UpdateUI += UpdateEnemyStats;
     }
-
+    //Issue is that when you pick the item in the shop, it does not select the right tower. It seems like a good idea to have separate menus for production and shooting towers
+    //Alternatively, I'll need to find a better way of selecting the tower. This could also be done by adding an identifier in the SO script.
+    //I really hope I remember to check this...
     public void PickedTower(GameObject thisButton)
     {
-        towerManager.selectedTower = thisButton.transform.GetSiblingIndex();
+        towerManager.selectedTower = thisButton.transform.GetSiblingIndex()-1;
         towerManager.InitiateCreateMode();
         cancelBuild.SetActive(true);
     }
-
+    
     public void CancelBuild()
     {
         towerManager.CompleteCreateMode();
         cancelBuild.SetActive(false);
-    }
-
-    public void ManagementInteraction()
-    {
-        towerManagement.SetActive(!towerManagement.activeInHierarchy);
     }
 
     public void ShopInteraction()

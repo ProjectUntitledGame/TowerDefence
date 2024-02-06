@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 5385002193224141268}
   - component: {fileID: -6877761930740537197}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: ArrowTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

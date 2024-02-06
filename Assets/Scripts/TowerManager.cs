@@ -1,11 +1,13 @@
 using System;
+using Towers;
 using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] towers;
+    [SerializeField] private TowerSO[] towerScriptable;
     [SerializeField] private GameObject allHolders;
     public bool createMode;
+    private bool productionTowerSelected;
     public int selectedTower;
     private GameObject _currentObject;
     private TowerHolder _currentHolder;
@@ -14,6 +16,12 @@ public class TowerManager : MonoBehaviour
     private Action _createTowerCallback; 
     [SerializeField] private ResourceManager resourceManager;
 
+    
+    //Issue is that when you pick the item in the shop, it does not select the right tower. It seems like a good idea to have separate menus for production and shooting towers
+    //Alternatively, I'll need to find a better way of selecting the tower. This could also be done by adding an identifier in the SO script.
+    //I really hope I remember to check this...
+    
+    
     private void Start()
     {
         _createTowerCallback += CreateTower;
@@ -76,8 +84,7 @@ public class TowerManager : MonoBehaviour
 
     private void CreateTower()
     {
-        _currentHolder.occupiedSpot = true;
-        _currentHolder.tower = Instantiate(towers[selectedTower], _currentHolder.transform.position, Quaternion.identity);
+        towerScriptable[selectedTower].CreateTower();
         EndCreateMode();
     }
 }

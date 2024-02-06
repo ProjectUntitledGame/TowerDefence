@@ -43,9 +43,4 @@ public class EnemyController : MonoBehaviour
                 _position++;
             }
         }
-
-        private void OnDestroy()
-        {
-            removeFromSpawnerArray(this);
-        }
 }
