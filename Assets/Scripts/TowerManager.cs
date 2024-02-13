@@ -84,7 +84,7 @@ public class TowerManager : MonoBehaviour
 
     private void CreateTower()
     {
-        towerScriptable[selectedTower].CreateTower();
+        towerScriptable[selectedTower].CreateTower(_currentHolder);
         EndCreateMode();
     }
 }

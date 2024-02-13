@@ -8,7 +8,6 @@ namespace Towers
         [Header("Initialise")]
         public string towerName;
         public Mesh model;
-        public TowerHolder towerHolder;
         public bool productionType;
         [Header("Attack Params")]
         public int range;
@@ -26,7 +25,7 @@ namespace Towers
         //I really hope I remember to check this...
         
         
-        public void CreateTower()
+        public void CreateTower(TowerHolder towerHolder)
         {
             GameObject tower = new GameObject(towerName)
             {
@@ -40,7 +39,9 @@ namespace Towers
             MeshRenderer tempRenderer = tower.AddComponent<MeshRenderer>();
             MeshFilter tempFilter = tower.AddComponent<MeshFilter>();   
             tempFilter.mesh = model;
-            
+            SphereCollider collider = tower.AddComponent<SphereCollider>();
+            collider.isTrigger = true;
+            collider.radius = 3f;
             STLogic towerLogic = tower.AddComponent<STLogic>();
             towerHolder.occupiedSpot = true;
             towerHolder.tower = tower;

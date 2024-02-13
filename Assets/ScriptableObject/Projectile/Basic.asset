@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Basic
   m_EditorClassIdentifier: 
   towerName: Basic Tower
-  model: {fileID: 2534964839176971238, guid: cadc6974ccc9d644087d6ae6051e54d8, type: 3}
-  towerHolder: {fileID: 0}
+  model: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  productionType: 0
   range: 5
   turnSpeed: 0
-  damage: 1
+  damage: 1000
   delay: 2
   slow: 0
   initialSpeed: 0
